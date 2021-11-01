@@ -1,2 +1,24 @@
-# Everything
-With a name inspired by https://www.voidtools.com/downloads/, this Discord bot print a lot of things happened on your Discord server, really good for checking actions maded by a raid bot
+### Everything
+This program is maked with https://dpp.dev.
+It's a bot for logging almost every actions happenned on your Discord server.
+
+### Build
+For building it, please download at first a release of D++ (https://github.com/brainboxdotcc/DPP/releases/).
+After that's good, clone this repository in src/ folder, and delete test.cpp for making tree like that:
+
+-> /.circleci
+-> /.github
+-> /cmake
+-> /docpages
+-> /doxygen-awesome-css
+-> /include
+-> /src
+  -> /src/Everything.cpp
+  -> /src/LICENSE
+  -> /src/README.md
+-> /testdata
+-> /win32
+-> /.dockerignore 
+-> ...
+
+And build it with the available documentation, https://dpp.dev/md_docpages_02_build.html
