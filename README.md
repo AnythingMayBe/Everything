@@ -7,18 +7,30 @@ For building it, please download at first a release of D++ (https://github.com/b
 After that's good, clone this repository in src/ folder, and delete test.cpp for making tree like that:
 
 -> /.circleci
+
 -> /.github
 -> /cmake
+
 -> /docpages
+
 -> /doxygen-awesome-css
+
 -> /include
+
 -> /src
+
   -> /src/Everything.cpp
+  
   -> /src/LICENSE
+  
   -> /src/README.md
+  
 -> /testdata
+
 -> /win32
+
 -> /.dockerignore 
+
 -> ...
 
 And build it with the available documentation, https://dpp.dev/md_docpages_02_build.html
