@@ -10,29 +10,17 @@ After that's good, clone this repository in src/ folder, and delete test.cpp for
 
 -> /.github
 -> /cmake
-
 -> /docpages
-
 -> /doxygen-awesome-css
-
 -> /include
-
 -> /src
-
   -> /src/Everything.cpp
-  
   -> /src/LICENSE
-  
   -> /src/README.md
-
   -> /src/dpp
-  
 -> /testdata
-
 -> /win32
-
 -> /.dockerignore 
-
 -> ...```
 
 And build it with the available documentation, https://dpp.dev/md_docpages_02_build.html
