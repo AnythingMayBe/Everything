@@ -7,6 +7,7 @@
 #include <iostream>
 #include <dpp/nlohmann/json.hpp>
 #include <fstream>
+#include <algorithm>
 
 void handle(std::string raw_event) {
     json data;
@@ -27,10 +28,28 @@ void handle(std::string raw_event) {
 
 int main()
 {
-    dpp::cluster bot("ODc3NTEzMTQ2Njk5NDg5Mjgw.YRztzQ.hLwy6SKwYAhjAT1ZhIiDVyIfdSM");
+    dpp::cluster bot("nice try, maybe next commit?");
     
     bot.on_ready([&bot](const dpp::ready_t & event) {
         std::cout << "Logged in as " << bot.me.username << "!\n";
+        handle(event.raw_event);
+    });
+
+    bot.on_message_create([&bot](const dpp::message_create_t & event) {
+        // Handling command
+        if (event.msg->content == "everything report" || event.msg->content == "every report" || event.msg->content == "ery report") {
+            // Setting up whitelist & verifying the ID
+            //int whitelistedId[1] = {854616353499906049};
+            
+            //if(std::find(std::begin(whitelistedId), std::end(whitelistedId), event.msg->author->id) != std::end(whitelistedId)) {
+            if(event.msg->author->id == 8546163534999060490) {
+                bot.message_create(dpp::message(event.msg->channel_id, ":hourglass_flowing_sand: Reporting logs to https://paste.gg"));
+            } else {
+                bot.message_create(dpp::message(event.msg->channel_id, ":x: You don't have the permission to do so."));
+            }
+        }
+
+        // Handle Event
         handle(event.raw_event);
     });
 
@@ -126,9 +145,6 @@ int main()
         handle(event.raw_event);
     });
     bot.on_log([&bot](const dpp::log_t & event) {
-        handle(event.raw_event);
-    });
-    bot.on_message_create([&bot](const dpp::message_create_t & event) {
         handle(event.raw_event);
     });
     bot.on_message_delete([&bot](const dpp::message_delete_t & event) {
