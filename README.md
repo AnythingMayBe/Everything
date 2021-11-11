@@ -24,3 +24,5 @@ After that's good, clone this repository in src/ folder, and delete test.cpp for
 -> ...```
 
 And build it with the available documentation, https://dpp.dev/md_docpages_02_build.html
+
+> Note: it can build with target `test`, try to run them twice if you changes don't work.
