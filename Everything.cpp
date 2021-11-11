@@ -1,4 +1,9 @@
+
+// Bot core librairies
 #include <dpp/dpp.h>
+#include <dpp/fmt/format.h>
+
+// Other librairies
 #include <iostream>
 #include <dpp/nlohmann/json.hpp>
 #include <fstream>
@@ -22,8 +27,12 @@ void handle(std::string raw_event) {
 
 int main()
 {
-    dpp::cluster bot("token");
- 
+    dpp::cluster bot("ODc3NTEzMTQ2Njk5NDg5Mjgw.YRztzQ.hLwy6SKwYAhjAT1ZhIiDVyIfdSM");
+    
+    bot.on_ready([&bot](const dpp::ready_t & event) {
+        std::cout << "Logged in as " << bot.me.username << "!\n";
+        handle(event.raw_event);
+    });
 
    
     bot.on_application_command_create([&bot](const dpp::application_command_create_t & event) {
@@ -144,10 +153,6 @@ int main()
         handle(event.raw_event);
     });
     bot.on_presence_update([&bot](const dpp::presence_update_t & event) {
-        handle(event.raw_event);
-    });
-    bot.on_ready([&bot](const dpp::ready_t & event) {
-        std::cout << "Logged in as " << bot.me.username << "!\n";
         handle(event.raw_event);
     });
     bot.on_resumed([&bot](const dpp::resumed_t & event) {
