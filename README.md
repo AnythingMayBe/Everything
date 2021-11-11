@@ -21,7 +21,8 @@ After that's good, clone this repository in src/ folder, and delete test.cpp for
 -> /testdata
 -> /win32
 -> /.dockerignore 
--> ...```
+-> ...
+```
 
 And build it with the available documentation, https://dpp.dev/md_docpages_02_build.html
 
