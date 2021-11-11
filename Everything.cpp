@@ -1,18 +1,29 @@
 #include <dpp/dpp.h>
 #include <iostream>
+#include <dpp/nlohmann/json.hpp>
+#include <fstream>
 
 void handle(std::string raw_event) {
-    std::cout << raw_event << std::endl;
-    //std::cout << std::endl << "In: " << guildId << std::endl;
+    json data;
+    try {
+        data = json::parse(raw_event);
+        std::string guild_id = data["d"]["guild_id"];
+
+        // Writing result
+        std::ofstream currwrite;
+        currwrite.open("../src/logs/" + guild_id + ".txt", std::ios_base::app);
+        currwrite << raw_event << std::endl;
+        currwrite.close();
+    }
+    catch (json::parse_error& ex) {
+        return;
+    }
 }
 
 int main()
 {
     dpp::cluster bot("token");
  
-    bot.on_ready([&bot](const dpp::ready_t & event) {
-        std::cout << "Logged in as " << bot.me.username << "!\n";
-    });
 
    
     bot.on_application_command_create([&bot](const dpp::application_command_create_t & event) {
@@ -136,6 +147,7 @@ int main()
         handle(event.raw_event);
     });
     bot.on_ready([&bot](const dpp::ready_t & event) {
+        std::cout << "Logged in as " << bot.me.username << "!\n";
         handle(event.raw_event);
     });
     bot.on_resumed([&bot](const dpp::resumed_t & event) {
