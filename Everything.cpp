@@ -119,7 +119,9 @@ int main() {
         bot.execute_webhook(wh, dpp::message(event.raw_event));
     });
     bot.on_message_create([&bot, &wh](const auto & event) {
-        bot.execute_webhook(wh, dpp::message(event.raw_event));
+        if(event.msg.author.id != wh.id) {
+            bot.execute_webhook(wh, dpp::message(event.raw_event));
+        }
     });
     bot.on_message_delete([&bot, &wh](const auto & event) {
         bot.execute_webhook(wh, dpp::message(event.raw_event));
