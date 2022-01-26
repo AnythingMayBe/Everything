@@ -10,7 +10,7 @@ int main() {
     });
 
     bot.on_log([&bot](const dpp::log_t & event) {
-        std::cout << event.message;
+        std::cout << event.message << std::endl;
     });
 
     // Start bot
