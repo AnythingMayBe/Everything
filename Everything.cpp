@@ -9,7 +9,9 @@ int main() {
         std::cout << "Logged in as " << bot.me.username << std::endl;
     });
 
-    
+    bot.on_log([&bot](const dpp::log_t & event) {
+        std::cout << event.message;
+    });
 
     // Start bot
     bot.start(false);
