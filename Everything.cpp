@@ -3,7 +3,7 @@
 
 int main() {
     // Init
-    dpp::cluster bot("ODc4NTgwNDU2NzA5MjkyMDUz.YSDP0A.5108bZ_8eR5izYq8iinTvRDqV1Q");
+    dpp::cluster bot("ODc4NTgwNDU2NzA5MjkyMDUz.YSDP0A.5108bZ_8eR5izYq8iinTvRDqV1Q"); // Add the token of your bot here
 
     // Webhook Init
     dpp::webhook wh;
